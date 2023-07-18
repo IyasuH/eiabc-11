@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/74048ef553.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/styles/home.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>EiABC CoTM-11</title>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar" id="cotmTopnav">
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <a href="http://eiabc.edu.et/index.php/home" class="nav-logo">EiABC <span>11</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/CoTM" class="nav-link">CoTM</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Arch" class="nav-link">Arch</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Urban" class="nav-link">Urban</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-body">
+        <div class="year-description">
+            <h5>About this year</h5>
+            <p>{{ year_desc }}</p>
+        </div>
+        <div class="file-search">
+            <h5>Files</h5>
+            <div>
+                <input type="text" placeholder="Search.." class="search-bar">
+                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        {% block content %}
+        <div class="files">
+            {% for file in files %}
+            <div class="file_allt">
+                <div class="file_img"></div>
+                <div class="file_block">
+                    <div class="file_block_1">
+                        <h4>{{ file.course_title }}</h4>
+                        <h4>{{ file.file_name }}</h4>
+                        <a href={{ "/static/files/"+file.file_name+".docx" }} download="new_file"><button>Download</button></a>
+                    </div>
+                    <div class="file_block_2">
+                        <h5>{{ file.year }}th year<h5>
+                        <h5>{{ file.submitted_year }}</h5>
+                        <h5>type: {{ file.file_type }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </div>
+    <footer>
+        <div class="footer-desc">
+            <p>Designed and developed by <a href="https://t.me/IyasuHa"><b>IyasuHa</b></a></p>
+          </div>
+          <div class="social-media">
+            <a target="_blank" href="https://github.com/IyasuH"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://instagram.com/eyasuhailegebriel?igshid=NTc4MTIwNjQ2YQ=="><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/eyasu-hailegebriel-a423601a3"><i class="fab fa-linkedin"></i></a>
+            <!-- <a target="_blank" href=""><i class="fab fa-twitter"></i></a> -->
+            <a target="_blank" href="https://t.me/IyasuHa"><i class="fab fa-telegram"></i></a>
+          </div>      
+    </footer>
+    <script src="../static/scripts/index.js?v=1"></script>    
+</body>
+</html>
